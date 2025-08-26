@@ -32,7 +32,7 @@ void StatusLed::SetState(LedState_t state)
 
 static void _led_blink()
 {
-    HAL::SetLedState(true);
+    HAL::SetLedState(false);
     delay(50);
     HAL::SetLedState(false);
 }

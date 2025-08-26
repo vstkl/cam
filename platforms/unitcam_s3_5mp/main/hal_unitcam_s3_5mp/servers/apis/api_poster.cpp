@@ -62,12 +62,15 @@ static void _task_image_poster(void* param)
 
                 // Start posting
                 spdlog::info("start posting..");
-                if (!ezdata_image_poster(
-                        mac, HAL::GetSystemConfig().nickname, HAL::GetSystemConfig().timeZone, [](camera_fb_t* frameBuffer) {
-                            // Save on every captured
-                            if (HAL::IsSdCardVaild())
-                                HAL::SaveImage(frameBuffer->buf, frameBuffer->len);
-                        }))
+                if (!ezdata_image_poster(mac,
+                                         HAL::GetSystemConfig().nickname,
+                                         HAL::GetSystemConfig().timeZone,
+                                         [](camera_fb_t* frameBuffer)
+                                         {
+                                             // Save on every captured
+                                             if (HAL::IsSdCardVaild())
+                                                 HAL::SaveImage(frameBuffer->buf, frameBuffer->len);
+                                         }))
                 {
                     // If failed
                     spdlog::error("post failed, try reboot..");
