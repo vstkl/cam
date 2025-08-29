@@ -1,5 +1,9 @@
 # UnitCAMS3-5MP UserDemo
 
+# vstkl edit
+
+app waits 10s with active AP (UnitCAMS3-5MP wifi or sth like that) for connection, if no device connects, switches to poster mode
+
 ## Build
 
 ### Fetch Dependencies
@@ -21,9 +25,11 @@ sudo apt install build-essential cmake
 ```bash
 mkdir build && cd build
 ```
+
 ```bash
 cmake .. && make -j8
 ```
+
 #### Run
 
 ```bash
@@ -58,7 +64,6 @@ idf.py -p <YourPort> flash -b 1500000
 parttool.py --port <YourPort> write_partition --partition-name=assetpool --input "path/to/AssetPool.bin"
 ```
 
-If you run desktop build before, you can found `AssetPool.bin` at 
+If you run desktop build before, you can found `AssetPool.bin` at
 
 `../../build/desktop/AssetPool.bin`.
-
